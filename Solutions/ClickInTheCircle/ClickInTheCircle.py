@@ -7,7 +7,6 @@ def distance(point1, point2):
     point2_x = point2[0]
     point1_y = point1[1]
     point2_y = point2[1]
-
     return math.sqrt((point1_x - point2_x) ** 2 + (point1_y - point2_y) ** 2)
 
 
@@ -20,15 +19,15 @@ def main():
     frame_color = (0, 0, 0)
 
     instruction_text = 'Click in the circle'
-    text_color = (122, 237, 201)
+    text_color = (222, 222, 0)
     text_background_color = frame_color
 
     instructions_image = font.render(instruction_text, True, text_color, text_background_color)
 
-    circle_color = (182, 210, 110)
+    circle_color = (154, 58, 212)
     circle_center = (screen.get_width() // 2, screen.get_height() // 2)
     circle_radius = 50
-    circle_border_width = 5
+    circle_border_width = 3
 
     pygame.draw.circle(screen, circle_color, circle_center, circle_radius, circle_border_width)
 
@@ -45,8 +44,11 @@ def main():
                 distance_from_circle = distance(click_position, circle_center)
                 if distance_from_circle < circle_radius:
                     message_text = 'Bullseye!'
+                    pygame.mixer.music.load('drums.wav')
+                    pygame.mixer.music.play(-1)
                 else:
                     message_text = 'You missed!'
+                    pygame.mixer.music.stop()
 
         screen.fill(frame_color)
 

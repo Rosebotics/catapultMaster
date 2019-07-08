@@ -22,15 +22,15 @@ def main():
     frame_color = (0, 0, 0)
 
     instruction_text = 'Click in the circle'
-    text_color = (122, 237, 201)
+    text_color = (222, 222, 0)
     text_background_color = frame_color
 
     instructions_image = font.render(instruction_text, True, text_color, text_background_color)
 
-    circle_color = (182, 210, 110)
+    circle_color = (154, 58, 212)
     circle_center = (screen.get_width() // 2, screen.get_height() // 2)
     circle_radius = 50
-    circle_border_width = 5
+    circle_border_width = 3
 
     pygame.draw.circle(screen, circle_color, circle_center, circle_radius, circle_border_width)
 
@@ -42,20 +42,22 @@ def main():
             if event.type == pygame.QUIT:
                 sys.quit()
 
-            # TODO: For a MOUSEBUTTONDOWN event get the click position.
-            # TODO: Determine if the distance to the circle_center is less than the circle_radius
-            # TODO: Set the message_text to either 'Bullseye!' or 'You missed!'
+            # TODO 2: For a MOUSEBUTTONDOWN event get the click position.
+            # TODO 3: Determine if the distance to the circle_center is less than the circle_radius
+            # TODO 4: Set the message_text to either 'Bullseye!' or 'You missed!'
+            # TODO 7: After you get the message_text working add the drums.wav
+            # TODO 7:   Start playing for clicks within the circle, stop playing for clicks outside the circle
 
         screen.fill(frame_color)
 
-        # TODO: Draw the circle using the screen, circle_color, circle_center, circle_radius, and circle_border_width
+        # TODO 1: Draw the circle using the screen, circle_color, circle_center, circle_radius, and circle_border_width
 
-        # TODO: Create a text image (render the text) based on the message_text
-        # TODO: Color (122, 237, 201)
-        # TODO: Background Color (122, 237, 201)
+        # TODO 5: Create a text image (render the text) based on the message_text
+        # TODO 5:   Color (122, 237, 201)
+        # TODO 5:   Background Color (122, 237, 201)
 
         screen.blit(instructions_image, (25, 25))
-        # TODO: Draw (blit) the message to the user that says 'Bullseye!' or 'You missed!'
+        # TODO 6: Draw (blit) the message to the user that says 'Bullseye!' or 'You missed!'
 
         pygame.display.update()
 
