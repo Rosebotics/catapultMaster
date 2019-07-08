@@ -79,7 +79,7 @@ class Cloud:
 
     def rain(self):
         """ Adds a Raindrop to the array of raindrops so that it looks like the Cloud is raining. """
-        # TODO 28: Append a new Raindrop to this Cloud's list of 03-Raindrops,
+        # TODO 28: Append a new Raindrop to this Cloud's list of 03-03-Raindrops,
         # TODO    where the new Raindrop starts at:
         # TODO      - x is a random integer between this Cloud's x and this Cloud's x + 300.
         # TODO      - y is this Cloud's y + 100.
@@ -124,7 +124,7 @@ def main():
             # TODO      - move the Raindrop.
             # TODO      - draw the Raindrop.
             # TODO  30: if the Hero is hit by a Raindrop, set the Hero's last_time_hit to the current time.
-            # CONSIDER  - if the Raindrop is off the screen, delete it from the Cloud's list of 03-Raindrops.
+            # CONSIDER  - if the Raindrop is off the screen, delete it from the Cloud's list of 03-03-Raindrops.
 
         # TODO 18: Draw the Hero
 
