@@ -37,7 +37,7 @@ def main():
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                sys.quit()
+                sys.exit()
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 click_position = event.pos

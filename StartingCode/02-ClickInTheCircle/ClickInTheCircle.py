@@ -8,7 +8,7 @@ def distance(point1, point2):
     point1_y = point1[1]
     point2_y = point2[1]
 
-    # TODO: Return the actual distance between point 1 and point 2.
+    # TODO 3b: Return the actual distance between point 1 and point 2.
     #       distance = sqrt(   (delta x) ** 2 + (delta y) ** 2  )
     return 0
 
@@ -32,18 +32,17 @@ def main():
     circle_radius = 50
     circle_border_width = 3
 
-    pygame.draw.circle(screen, circle_color, circle_center, circle_radius, circle_border_width)
-
     message_text = ''
 
     while True:
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                sys.quit()
+                sys.exit()
 
             # TODO 2: For a MOUSEBUTTONDOWN event get the click position.
-            # TODO 3: Determine if the distance to the circle_center is less than the circle_radius
+            # TODO 3a: Call the distance function and save the result into a variable
+            # TODO 4: Determine if the distance to the circle_center is less than the circle_radius
             # TODO 4: Set the message_text to either 'Bullseye!' or 'You missed!'
             # TODO 7: After you get the message_text working add the drums.wav
             # TODO 7:   Start playing for clicks within the circle, stop playing for clicks outside the circle
