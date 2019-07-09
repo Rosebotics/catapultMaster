@@ -56,13 +56,13 @@ class Game:
         lines.append(self.board[0][0] + self.board[1][1] + self.board[2][2])
         lines.append(self.board[0][2] + self.board[1][1] + self.board[2][0])
 
-        # TODO: Use the lines list to determine if there is a winner.
-        # TODO: If there is a winner, update the title text, play a sound, and set game_is_over to True.
+        # TODO 6: Use the lines list to determine if there is a winner.
+        # TODO 7: If there is a winner, update the title text, play a sound, and set game_is_over to True.
 
 
 def draw_board(screen, game):
     """ Draw the board based on the marked store in the board configuration array """
-    # TODO: Loop over the game.board to place X and O images on the screen as appropriate.
+    # TODO 3: Loop over the game.board to place X and O images on the screen as appropriate.
 
 
 def main():
@@ -71,19 +71,21 @@ def main():
     screen = pygame.display.set_mode((380, 400))
     pygame.display.set_caption("X's Turn")
     board_surface = pygame.image.load("board.png")
-    # TODO: Create an instance of the Game class
+    # TODO 1: Create an instance of the Game class
 
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
-            # TODO: When a MOUSEBUTTONUP event occurs take a game turn
-            # TODO: When the K_SPACE key is pressed create a new game instance and update the text.
+            # TODO 6: When a MOUSEBUTTONUP event occurs take a game turn
+            # TODO 8: When the K_SPACE key is pressed create a new game instance and update the text.
 
         screen.fill(pygame.Color("white"))
         screen.blit(board_surface, get_xy_position(0, 0))
 
-        # TODO: Call draw_board
+        # TODO 2: Call draw_board
+        # TODO 4: As a temporary test hardcode a few 'X' or 'O' values in game.board
+        # TODO 5: Remove your temporary hardcoded tests
 
         pygame.display.update()
 
