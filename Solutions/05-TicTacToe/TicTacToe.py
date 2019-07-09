@@ -65,7 +65,6 @@ class Game:
                 pygame.mixer.music.play()
 
 
-
 def draw_board(screen, game):
     """ Draw the board based on the marked store in the board configuration array """
     for row in range(3):
