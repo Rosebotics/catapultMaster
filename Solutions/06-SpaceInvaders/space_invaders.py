@@ -4,10 +4,10 @@ from pygame.locals import *
 
 class Missile:
     def __init__(self, screen, x):
-        self.exploded = False
         self.screen = screen
         self.x = x
         self.y = 591
+        self.exploded = False
 
     def move(self):
         self.y = self.y - 5
@@ -46,18 +46,18 @@ class Badguy:
         self.image = pygame.image.load("badguy.png").convert()
         self.image.set_colorkey((0, 0, 0))
         self.original_x = x
-        self.moving_right = True
+        self.move_right = True
 
     def move(self):
-        if self.moving_right:
+        if self.move_right:
             self.x = self.x + 2
             if self.x > self.original_x + 100:
-                self.moving_right = False
+                self.move_right = False
                 self.y = self.y + 15
         else:
             self.x = self.x - 2
             if self.x < self.original_x - 100:
-                self.moving_right = True
+                self.move_right = True
                 self.y = self.y + 15
 
     def draw(self):
