@@ -1,16 +1,16 @@
 import pygame
 import sys
-
+import random
 
 class Ball:
-    def __init__(self, screen):
+    def __init__(self, screen, x, y, color, radius):
         self.screen = screen
-        self.color = pygame.Color("green")
-        self.x = 70
-        self.y = 70
-        self.radius = 10
-        self.speed_x = 2
-        self.speed_y = 4
+        self.color = color
+        self.x = x
+        self.y = y
+        self.radius = radius
+        self.speed_x = random.randint(-5, 5)  # Note, it might pick 0, oh well
+        self.speed_y = random.randint(-5, 5)  # Note, it might pick 0, oh well
 
     def draw(self):
         pygame.draw.circle(self.screen, self.color, (self.x, self.y), self.radius)
@@ -33,9 +33,20 @@ def main():
     screen = pygame.display.set_mode((300, 300))
     pygame.display.set_caption('Bouncing Ball')
     screen.fill(pygame.Color('gray'))
-    ball = Ball(screen)
+
     clock = pygame.time.Clock()
 
+    demo_with_1_ball_only = True
+
+    if demo_with_1_ball_only:
+        ball = Ball(screen, 70, 70, pygame.Color("green"), 10)
+    else:
+        balls = []
+        for k in range(100):
+            new_ball = Ball(screen, random.randint(10, 290), random.randint(10, 290),
+                            (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)),
+                            random.randint(8, 12))
+            balls.append(new_ball)
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -44,8 +55,13 @@ def main():
         clock.tick(60)
         screen.fill(pygame.Color('gray'))
 
-        ball.move()
-        ball.draw()
+        if demo_with_1_ball_only:
+            ball.move()
+            ball.draw()
+        else:
+            for ball in balls:
+                ball.move()
+                ball.draw()
 
         pygame.display.update()
 

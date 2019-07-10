@@ -1,10 +1,16 @@
 import pygame
 import sys
+import random
+
+
+# You will implement this module ENTIRELY ON YOUR OWN!
+# Ask your neighbor for help early and often (feel free to work together).
+# Ask us for help too, but... ask your neighbor first!  Ask us when you are both stuck.
 
 
 # TODO: Create a Ball class.
-# TODO: Member variables: screen, color, x, y, radius, speed_x, speed_y
-# TODO: Methods __init__, draw, move
+# TODO: Possible member variables: screen, color, x, y, radius, speed_x, speed_y
+# TODO: Methods: __init__, draw, move
 
 
 def main():
@@ -14,7 +20,7 @@ def main():
     screen.fill(pygame.Color('gray'))
     clock = pygame.time.Clock()
 
-    # TODO: Create an instance of the Ball class
+    # TODO: Create an instance of the Ball class called ball1
 
     while True:
         for event in pygame.event.get():
@@ -31,3 +37,10 @@ def main():
 
 
 main()
+
+
+# Challenges (if you finish early):
+#   After you get 1 ball working make a few balls (ball2, ball3, etc) that start in different places.
+#   Make the speed of each ball randomly chosen (1 to 5)
+#   After you get that working try making a list of balls to have 100 balls (use a loop)!
+#   Use random colors for each ball
