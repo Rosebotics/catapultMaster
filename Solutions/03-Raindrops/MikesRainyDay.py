@@ -43,7 +43,7 @@ class Cloud:
         self.screen = screen
         self.x = x
         self.y = y
-        self.image = pygame.image.load(image).convert()
+        self.image = pygame.image.load(image)
         self.raindrops = []
 
     def draw(self):
