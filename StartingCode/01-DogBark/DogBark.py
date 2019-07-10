@@ -3,14 +3,13 @@ import pygame, sys
 
 def main():
     # pre-define RGB colors for Pygame
-    BLACK = (0, 0, 0)
-    WHITE = (255, 255, 255)
+    BLACK = pygame.Color("Black")
+    WHITE = pygame.Color("White")
     IMAGE_SIZE = 470
     TEXT_HEIGHT = 30
 
     # initialize the pygame module
     pygame.init()
-    pygame.font.init()
 
     # prepare the window (screen)
     screen = pygame.display.set_mode((IMAGE_SIZE, IMAGE_SIZE + TEXT_HEIGHT))
@@ -19,7 +18,7 @@ def main():
     # Load the music and the image
     # TODO 1: Create an image with the 2dogs.JPG image
     # TODO 4: Create a font object with a size 28 font.
-    # TODO 8: Load the sound "bark.mp3" into the pygame music mixer.
+    # TODO 8: Create a Sound object from the "bark.wav" file.
 
     while True:
         for event in pygame.event.get():

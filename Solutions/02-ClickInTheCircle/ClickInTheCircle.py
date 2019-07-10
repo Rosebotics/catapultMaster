@@ -16,20 +16,16 @@ def main():
     pygame.display.set_caption("Mouse click positions")
     font = pygame.font.Font(None, 25)
 
-    frame_color = (0, 0, 0)
+    pygame.mixer.music.load('drums.wav')
 
     instruction_text = 'Click in the circle'
     text_color = (222, 222, 0)
-    text_background_color = frame_color
-
-    instructions_image = font.render(instruction_text, True, text_color, text_background_color)
+    instructions_image = font.render(instruction_text, True, text_color)
 
     circle_color = (154, 58, 212)
     circle_center = (screen.get_width() // 2, screen.get_height() // 2)
     circle_radius = 50
     circle_border_width = 3
-
-    pygame.draw.circle(screen, circle_color, circle_center, circle_radius, circle_border_width)
 
     message_text = ''
 
@@ -44,17 +40,16 @@ def main():
                 distance_from_circle = distance(click_position, circle_center)
                 if distance_from_circle < circle_radius:
                     message_text = 'Bullseye!'
-                    pygame.mixer.music.load('drums.wav')
                     pygame.mixer.music.play(-1)
                 else:
                     message_text = 'You missed!'
                     pygame.mixer.music.stop()
 
-        screen.fill(frame_color)
+        screen.fill(pygame.Color("Black"))
 
         pygame.draw.circle(screen, circle_color, circle_center, circle_radius, circle_border_width)
 
-        onscreen_message = font.render(message_text, True, (122, 237, 201), (0, 0, 0))
+        onscreen_message = font.render(message_text, True, (122, 237, 201))
 
         screen.blit(instructions_image, (25, 25))
         screen.blit(onscreen_message, (25, 375))
