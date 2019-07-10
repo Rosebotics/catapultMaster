@@ -41,6 +41,8 @@ main()
 
 # Challenges (if you finish early):
 #   After you get 1 ball working make a few balls (ball2, ball3, etc) that start in different places.
+#   Make each ball a different color
+#   Make the screen 1000 x 800 to allow your balls more space (what needs to change?)
 #   Make the speed of each ball randomly chosen (1 to 5)
 #   After you get that working try making a list of balls to have 100 balls (use a loop)!
 #   Use random colors for each ball
