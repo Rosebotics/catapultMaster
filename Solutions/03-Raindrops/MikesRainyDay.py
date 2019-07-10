@@ -103,6 +103,11 @@ def main():
             if mike.hit_by(raindrop):
                 mike.last_hit_time = time.time()
 
+                # Optionally remove the raindrop from the list in these cases.
+                cloud.raindrops.remove(raindrop)
+            if raindrop.off_screen():
+                cloud.raindrops.remove(raindrop)
+
         mike.draw()
         pygame.display.update()
 
