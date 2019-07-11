@@ -29,27 +29,25 @@ def get_xy_position(row, col):
 
 class Game:
     def __init__(self):
-        self.board = [['.' for _ in range(3)] for _ in range(3)]
-        self.turn_counter = 0
-        self.game_is_over = False
+        # TODO: Create an empty board, called board
+        #         A list that contains 3 lists, each of those lists has 3 '.' values.
+        # TODO: Create a turn_counter set to 0 and a game_is_over set to False
+        pass
 
     def take_turn(self, row, col):
         """Handle the current turn of the player and update board array"""
-        if self.game_is_over:
-            return
-        if row < 0 or row > 2 or col < 0 or col > 2:
-            return
-        if self.board[row][col] == '.':
-            if self.turn_counter % 2 == 0:
-                self.board[row][col] = 'X'
-                pygame.display.set_caption("O's Turn")
-            else:
-                self.board[row][col] = 'O'
-                pygame.display.set_caption("X's Turn")
-            self.turn_counter = self.turn_counter + 1
-            if self.turn_counter >= 9:
-                self.game_is_over = True
-                pygame.display.set_caption("Tie Game")
+        # TODO: Check if game_is_over and return from this method (doing nothing) if True
+        # TODO: Check if the value for row and col are valid.  Return (doing nothing) if invalid.
+        # TODO: Check if the mark at the requested row col is '.'.  Return (doing nothing) if it is not '.'
+
+        # TODO: Determine if it is X's turn or O's turn (even turn_counter means X's turn, odd for O's turn)
+        # TODO: Modify the board by setting the current row col to an 'X' or an 'O' as appropriate
+        # TODO: Update the display caption (top title) text as appropriate "O's Turn" or "X's Turn"
+
+        # TODO: Increment the turn_counter
+        # TODO: If the turn_counter is 9 then the game is over
+        # TODO:        Update the game_is_over value and set the display caption to "Tie Game"
+
         self.check_for_game_over()
 
     def check_for_game_over(self):
@@ -63,8 +61,8 @@ class Game:
         lines.append(self.board[0][0] + self.board[1][1] + self.board[2][2])
         lines.append(self.board[0][2] + self.board[1][1] + self.board[2][0])
 
-        # TODO 7: Use the lines list to determine if there is a winner.
-        # TODO 7: If there is a winner, update the title text, play a sound, and set game_is_over to True.
+        # TODO: Use the lines list to determine if there is a winner.
+        # TODO: If there is a winner, update the title text, play a sound, and set game_is_over to True.
 
 
 # --------------------------- Update the view ---------------------------
@@ -91,10 +89,10 @@ def main():
             if event.type == pygame.QUIT:
                 sys.exit()
             # TODO 6: When a MOUSEBUTTONUP event occurs take a game turn:
-            # TODO 6:   Get the X and Y mouse position
-            # TODO 6:   Use the get_row_col function to convert the XY mouse position into a row and column.
-            # TODO 6:   Call the take_turn method with the row and column values
-            # TODO 8: When the pygame.K_SPACE key is pressed create a new game instance and update the text.
+            # TODO 7:   Get the X and Y mouse position
+            # TODO 8:   Use the get_row_col function to convert the XY mouse position into a row and column.
+            # TODO 9:   Call the take_turn method with the row and column values
+            # TODO 10: When the pygame.K_SPACE key is pressed create a new game instance and update the text.
 
         screen.fill(pygame.Color("white"))
         screen.blit(board_surface, get_xy_position(0, 0))

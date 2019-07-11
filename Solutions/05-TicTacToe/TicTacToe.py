@@ -29,7 +29,13 @@ def get_xy_position(row, col):
 
 class Game:
     def __init__(self):
-        self.board = [['.' for _ in range(3)] for _ in range(3)]
+        self.board = []
+        for row in range(3):
+            current_row = []
+            for col in range(3):
+                current_row.append('.')
+            self.board.append(current_row)
+        # self.board = [['.' for _ in range(3)] for _ in range(3)]  # Too fancy for catapult
         self.turn_counter = 0
         self.game_is_over = False
 
@@ -39,17 +45,21 @@ class Game:
             return
         if row < 0 or row > 2 or col < 0 or col > 2:
             return
-        if self.board[row][col] == '.':
-            if self.turn_counter % 2 == 0:
-                self.board[row][col] = 'X'
-                pygame.display.set_caption("O's Turn")
-            else:
-                self.board[row][col] = 'O'
-                pygame.display.set_caption("X's Turn")
-            self.turn_counter = self.turn_counter + 1
-            if self.turn_counter >= 9:
-                self.game_is_over = True
-                pygame.display.set_caption("Tie Game")
+        if self.board[row][col] != '.':
+            return
+
+        if self.turn_counter % 2 == 0:
+            self.board[row][col] = 'X'
+            pygame.display.set_caption("O's Turn")
+        else:
+            self.board[row][col] = 'O'
+            pygame.display.set_caption("X's Turn")
+
+        self.turn_counter = self.turn_counter + 1
+        if self.turn_counter >= 9:
+            self.game_is_over = True
+            pygame.display.set_caption("Tie Game")
+
         self.check_for_game_over()
 
     def check_for_game_over(self):
@@ -67,6 +77,8 @@ class Game:
                 pygame.display.set_caption("X Wins!")
             if line == 'OOO':
                 pygame.display.set_caption("O Wins!")
+
+            # Students can do this like this or duplicate these two lines in both areas above.
             if line == 'OOO' or line == 'XXX':
                 self.game_is_over = True
                 pygame.mixer.music.play()
