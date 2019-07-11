@@ -2,7 +2,12 @@ import pygame
 import sys
 
 
+# --------------------------- Conversion helper functions ---------------------------
+
+
 def get_row_col(mouse_x, mouse_y):
+    """ Converts an x, y screen position into a row, col value. """
+    # Note: the top row is row=0 (bottom row=2), left col is col=0 (right col=2)
     spacing_x = 86 + 8
     spacing_y = 98 + 5
     top_y = 50
@@ -11,11 +16,15 @@ def get_row_col(mouse_x, mouse_y):
 
 
 def get_xy_position(row, col):
+    """ Converts a row, col value into an x, y screen position (upper left corner of that location). """
     spacing_x = 86 + 11
     spacing_y = 98 + 8
     top_y = 50
     left_x = 50
     return left_x + col * spacing_x, top_y + row * spacing_y
+
+
+# --------------------------- Model Object ---------------------------
 
 
 class Game:
@@ -24,13 +33,11 @@ class Game:
         self.turn_counter = 0
         self.game_is_over = False
 
-    def take_turn(self):
+    def take_turn(self, row, col):
         """Handle the current turn of the player and update board array"""
         if self.game_is_over:
             return
-        click_x, click_y = pygame.mouse.get_pos()
-        row, col = get_row_col(click_x, click_y)
-        if row < 0 or row > 3 or col < 0 or col > 3:
+        if row < 0 or row > 2 or col < 0 or col > 2:
             return
         if self.board[row][col] == '.':
             if self.turn_counter % 2 == 0:
@@ -65,6 +72,9 @@ class Game:
                 pygame.mixer.music.play()
 
 
+# --------------------------- Update the view ---------------------------
+
+
 def draw_board(screen, game):
     """ Draw the board based on the marked store in the board configuration array """
     for row in range(3):
@@ -76,6 +86,9 @@ def draw_board(screen, game):
             elif mark == 'O':
                 mark_image = pygame.image.load("o_mark.png")
                 screen.blit(mark_image, get_xy_position(row, col))
+
+
+# --------------------------- Controller ---------------------------
 
 
 def main():
@@ -91,7 +104,9 @@ def main():
             if event.type == pygame.QUIT:
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONUP:
-                game.take_turn()
+                click_x, click_y = pygame.mouse.get_pos()
+                row, col = get_row_col(click_x, click_y)
+                game.take_turn(row, col)
             pressed_keys = pygame.key.get_pressed()
             if pressed_keys[pygame.K_SPACE] and event.type == pygame.KEYDOWN:
                 game = Game()
