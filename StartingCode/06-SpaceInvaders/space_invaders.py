@@ -1,5 +1,4 @@
 import pygame, sys, random, time
-from pygame.locals import *
 
 
 class Missile:
@@ -91,6 +90,7 @@ class EnemyFleet:
             if self.badguys[k].dead:
                 del self.badguys[k]
 
+
 def main():
     pygame.init()
     clock = pygame.time.Clock()
@@ -105,14 +105,14 @@ def main():
         clock.tick(60)
         for event in pygame.event.get():
             pressed_keys = pygame.key.get_pressed()
-            # TODO 5: If the event type is KEYDOWN and pressed_keys[K_SPACE] is True, then fire a missile
-            if event.type == QUIT:
+            # TODO 5: If the event type is KEYDOWN and pressed_keys[pygame.K_SPACE] is True, then fire a missile
+            if event.type == pygame.QUIT:
                 sys.exit()
 
         screen.fill((0, 0, 0))
         pressed_keys = pygame.key.get_pressed()
-        # TODO 3: If K_LEFT is pressed and fighter.x is greater than -50 move the fighter left 5
-        # TODO 4: If K_RIGHT is pressed and fighter.x is less than 590 move the fighter right 5
+        # TODO 3: If pygame.K_LEFT is pressed and fighter.x is greater than -50 move the fighter left 5
+        # TODO 4: If pygame.K_RIGHT is pressed and fighter.x is less than 590 move the fighter right 5
         # TODO 2: Draw the fighter
 
         # TODO 11: Move the enemy

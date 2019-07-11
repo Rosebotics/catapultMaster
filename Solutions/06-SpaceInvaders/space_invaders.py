@@ -1,5 +1,4 @@
 import pygame, sys, random, time
-from pygame.locals import *
 
 
 class Missile:
@@ -50,12 +49,12 @@ class Badguy:
 
     def move(self):
         if self.move_right:
-            self.x = self.x + 2
+            self.x = self.x + 4
             if self.x > self.original_x + 100:
                 self.move_right = False
                 self.y = self.y + 15
         else:
-            self.x = self.x - 2
+            self.x = self.x - 4
             if self.x < self.original_x - 100:
                 self.move_right = True
                 self.y = self.y + 15
@@ -130,9 +129,9 @@ def main():
         clock.tick(60)
         for event in pygame.event.get():
             pressed_keys = pygame.key.get_pressed()
-            if pressed_keys[K_SPACE] and event.type == KEYDOWN:
+            if pressed_keys[pygame.K_SPACE] and event.type == pygame.KEYDOWN:
                 fighter.fire()
-            if event.type == QUIT:
+            if event.type == pygame.QUIT:
                 sys.exit()
         screen.fill((0, 0, 0))
         pressed_keys = pygame.key.get_pressed()
